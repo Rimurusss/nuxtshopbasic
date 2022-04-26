@@ -12,9 +12,9 @@ export const getProducts = ({ commit }) => {
 //   })
 // }
 
-// export const addProductToCart = ({ commit }, { product, amount }) => {
-//   commit('ADD_TO_CART', { product, amount })
-// }
+export const addProductToCart = ({ commit }, { product, amount }) => {
+  commit('ADD_TO_CART', { product, amount })
+}
 
 // export const removeProductFromCart = ({ commit }, product) => {
 //   commit('REMOVE_FROM_CART', product)

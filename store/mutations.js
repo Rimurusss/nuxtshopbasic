@@ -2,24 +2,24 @@ export const SET_PRODUCTS = (state, products) => {
   state.products = products
 }
 
-// export const SET_PRODUCT = (state, product) => {
-//   state.product_current = product
-// }
+export const SET_PRODUCT = (state, product) => {
+  state.product_current = product
+}
 
-// export const ADD_TO_CART = (state, { product, amount }) => {
-//   const productInCart = state.cart.find((item) => {
-//     return item.product.id === product.id
-//   })
-
-//   if (productInCart) {
-//     productInCart.amount += amount
-//     return
-//   }
-//   state.cart.push({
-//     product,
-//     amount
-//   })
-// }
+export const ADD_TO_CART = (state, { product, amount }) => {
+  const productInCart = state.cart.find((item) => {
+    return item.product.id === product.id
+  })
+// ทำให้สินค้าสแตกกัน
+  if (productInCart) {
+    productInCart.amount += amount
+    return
+  }
+  state.cart.push({
+    product,
+    amount
+  })
+}
 
 // export const REMOVE_FROM_CART = (state, product) => {
 //   state.cart = state.cart.filter(item => item.product.id !== product.id)

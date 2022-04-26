@@ -8,7 +8,7 @@
     data-content-scroll="false"
     aria-labelledby="offcanvasRightLabel"
   >
-     <!-- <div class="offcanvas-header ">
+     <div class="offcanvas-header ">
       <h5 id="offcanvasRightLabel">
         Cart
       </h5>
@@ -19,7 +19,8 @@
         aria-label="Close"
       />
     </div>
-     <div>
+<!--โชวสินค้าว่าง-->
+     <!-- <div>
       <button v-if="cart.length" class="btn btn-success" :disabled="isProcessing" @click="placeOrder">
         <span v-if="!isProcessing">Chackout: ({{ cartTotalPrice }}) บาท</span>
         <div v-else class="spinner-border" role="status" />
@@ -27,7 +28,7 @@
     </div>
      <div v-if="!cart.length && !isProcessing" class="alert alert-secondary" role="alert">
       Empty Cart!
-    </div>
+    </div> -->
     <div v-for="item in cart" :key="item.product.id">
       <hr>
       <div class="offcanvas-body">
@@ -57,7 +58,7 @@
       </div>
     </div>
     <hr>
-    <div class="d-flex justify-content-between">
+    <!-- <div class="d-flex justify-content-between">
       <button class="btn" @click="emptyCart()">
         <i class="fa fa-trash" /> Clear
       </button>
@@ -73,26 +74,26 @@ export default {
   //     isProcessing: false,
   //     orderPlaced: false
   //   }
-  // },
-  // computed: {
-  //   ...mapGetters(['cart']),
-  //   cartTotalPrice () {
-  //     return this.cart.reduce((a, b) => a + (b.amount * b.product.price), 0)
-  //   }
-  // },
-  // methods: {
-  //   ...mapActions(['addAmount', 'reduceAmount', 'removeProductFromCart', 'emptyCart']),
-  //   placeOrder () {
-  //     this.isProcessing = true
-  //     setTimeout(() => {
-  //       this.orderPlaced = true
-  //       this.isProcessing = true
-  //       this.emptyCart()
-  //       alert('Order successfully placed!')
-  //       location.reload()
-  //     }, 1000)
-  //   }
-  // }
+  // },//ลูกเล่น
+  computed: {
+    ...mapGetters(['cart']),
+    cartTotalPrice () {
+      return this.cart.reduce((a, b) => a + (b.amount * b.product.price), 0)
+    }//แสดงสิ้นค้า
+  },
+  methods: {
+    ...mapActions(['addAmount', 'reduceAmount', 'removeProductFromCart', 'emptyCart']),
+    placeOrder () {
+      this.isProcessing = true
+      setTimeout(() => {
+        this.orderPlaced = true
+        this.isProcessing = true
+        this.emptyCart()
+        alert('Order successfully placed!')
+        location.reload()
+      }, 1000)
+    }
+  }
 }
 </script>
 

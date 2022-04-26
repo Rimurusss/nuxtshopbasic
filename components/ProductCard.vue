@@ -41,14 +41,14 @@ export default {
   //   store.commit('SET_PRODUCTS', products)
   // },
 
-  // methods: {
-  //   addToCart () {
-  //     this.$store.dispatch('addProductToCart', {
-  //       product: this.product,
-  //       amount: 1
-  //     })
-  //   }
-  // }
+  methods: {
+    addToCart () {
+      this.$store.dispatch('addProductToCart', {
+        product: this.product,
+        amount: 1
+      })
+    }
+  }
 }
 </script>
 
